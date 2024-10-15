@@ -6,7 +6,7 @@ st.title("🎈 New app for class!")
 st.write(
     "We've started building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
 )
------
+
 
 prompt = st.text_input("What is your prompt today?", "Damascus is")
 
