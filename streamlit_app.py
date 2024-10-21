@@ -11,16 +11,24 @@ st.write(
 from transformers import pipeline
 prompt = st.text_input("What is your prompt today?", "Damascus is")
 number_of_tokens = st.text_input("What is the number of tokens to be used?", "20")
+creative_temperature = st.text_input("How creative do you want your responses?", "Pick a value between 0 and 1")
+predictive_temperature = st.text_input("How predictive do you want your responses?", "Pick a value between 0 and 1")
 
 # Convert the number of tokens input to an integer
 number_of_tokens = int(number_of_tokens)
+creative_temperature = int(creative_temperature)
+predictive_temperature = int(predictive_temperature)
 
 ### Create a GPT2 generator pipeline
 generator = pipeline('text-generation', model='gpt2')
 
 ### Use the pipeline
-response = generator(prompt, max_length= number_of_tokens)
+creative_response = generator(prompt, max_length= number_of_tokens, creative_temperature)
+predictive_response = generator(prompt, max_length= number_of_tokens, predictive_temperature)
 
 ### Display
-st.write(response[0]['generated_text'])   #cannot "print" in a webapp; have to code to show on UI
+st.write("Creative Response:")
+st.write(creative_response[0]['generated_text'])
 
+st.write("Predictable Response:")
+st.write(predictable_response[0]['generated_text'])
