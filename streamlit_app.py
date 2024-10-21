@@ -1,5 +1,5 @@
 import streamlit as st
-from openai import OpenAI
+import transformers
 import os
 
 st.title("🎈 New app for class!")
@@ -7,25 +7,16 @@ st.write(
     "We've started building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
 )
 
-
+# Use a pipeline as a high-level helper
+from transformers import pipeline
 prompt = st.text_input("What is your prompt today?", "Damascus is")
 
 
-### Load your API Key
-my_secret_key = st.secrets['MyOpenAIKey']
-os.environ["OPENAI_API_KEY"] = my_secret_key
+### Create a GPT2 generator pipeline
+generator = pipeline('text-generation', model='gpt2')
 
-
-### Request the answer to the question "Damascus is a"
-client = OpenAI()
-response = client.chat.completions.create(
-  model="gpt-4o-mini",
-  messages=[
-    {"role": "system", "content": "Complete the following prefix"},
-    {"role": "user", "content": prompt}
-  ],
-)
-
+### Use the pipeline
+response = generator(prompt)
 
 ### Display
 st.write(
