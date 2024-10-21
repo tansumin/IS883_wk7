@@ -22,5 +22,5 @@ generator = pipeline('text-generation', model='gpt2')
 response = generator(prompt, max_length= number_of_tokens)
 
 ### Display
-st.write(response.choices[0].message.content)   #cannot "print" in a webapp; have to code to show on UI
+st.write(response[0]['generated_text'])   #cannot "print" in a webapp; have to code to show on UI
 
