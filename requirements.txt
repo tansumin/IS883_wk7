@@ -2,3 +2,4 @@ streamlit
 openAI
 transformers
 tensorflow
+tf-keras
