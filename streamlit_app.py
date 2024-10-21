@@ -11,11 +11,11 @@ st.write(
 from transformers import pipeline
 prompt = st.text_input("What is your prompt today?", "Damascus is")
 number_of_tokens = st.text_input("What is the number of tokens to be used?", "20")
-creative_temperature = st.text_input("How creative do you want your responses?", "Pick a value between 0 and 1")
-predictive_temperature = st.text_input("How predictive do you want your responses?", "Pick a value between 0 and 1")
+creative_temperature = st.text_input("How creative do you want your responses? (Pick a value between 0 and 1)", "0.9")
+predictive_temperature = st.text_input("How predictive do you want your responses? (Pick a value between 0 and 1)", "0.2")
 
 # Convert the number of tokens input to an integer
-number_of_tokens = float(number_of_tokens)
+number_of_tokens = int(number_of_tokens)
 creative_temperature = float(creative_temperature)
 predictive_temperature = float(predictive_temperature)
 
