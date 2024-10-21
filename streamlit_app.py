@@ -15,9 +15,9 @@ creative_temperature = st.text_input("How creative do you want your responses?",
 predictive_temperature = st.text_input("How predictive do you want your responses?", "Pick a value between 0 and 1")
 
 # Convert the number of tokens input to an integer
-number_of_tokens = int(number_of_tokens)
-creative_temperature = int(creative_temperature)
-predictive_temperature = int(predictive_temperature)
+number_of_tokens = float(number_of_tokens)
+creative_temperature = float(creative_temperature)
+predictive_temperature = float(predictive_temperature)
 
 ### Create a GPT2 generator pipeline
 generator = pipeline('text-generation', model='gpt2')
