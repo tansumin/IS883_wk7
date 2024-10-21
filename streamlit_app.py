@@ -23,8 +23,8 @@ predictive_temperature = int(predictive_temperature)
 generator = pipeline('text-generation', model='gpt2')
 
 ### Use the pipeline
-creative_response = generator(prompt, max_length= number_of_tokens, creative_temperature)
-predictive_response = generator(prompt, max_length= number_of_tokens, predictive_temperature)
+creative_response = generator(prompt, max_length= number_of_tokens, temperature= creative_temperature)
+predictive_response = generator(prompt, max_length= number_of_tokens, temperature= predictive_temperature)
 
 ### Display
 st.write("Creative Response:")
