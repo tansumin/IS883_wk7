@@ -1,3 +1,4 @@
 streamlit
 openAI
 transformers
+tensorflow
