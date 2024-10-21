@@ -17,7 +17,7 @@ predictable_temperature = st.text_input("How predictable do you want your respon
 # Convert the number of tokens input to an integer
 number_of_tokens = int(number_of_tokens)
 creative_temperature = float(creative_temperature)
-predictable_temperature = float(predictive_temperature)
+predictable_temperature = float(predictable_temperature)
 
 ### Create a GPT2 generator pipeline
 generator = pipeline('text-generation', model='gpt2')
